@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIAL_UNLOCK_COMBO_COLS {0, 1}
 
 #undef DYNAMIC_KEYMAP_LAYER_COUNT
-#define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define TAPPING_TERM 180
 
 //#define USE_MATRIX_I2C
@@ -39,17 +39,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #define USE_SERIAL_PD2
+// #ifdef RGBLIGHT_ENABLE
+// #    undef RGBLIGHT_LED_COUNT
+// #    define RGBLIGHT_ANIMATIONS
+// #    define RGBLIGHT_LED_COUNT 54
+// #    undef RGBLED_SPLIT
+// #    define RGBLED_SPLIT 
+//         { 27, 27 }
+// #    define RGBLIGHT_LIMIT_VAL 120
+// #    define RGBLIGHT_HUE_STEP  10
+// #    define RGBLIGHT_SAT_STEP  17
+// #    define RGBLIGHT_VAL_STEP  17
+// #endif
+
 #ifdef RGBLIGHT_ENABLE
-#    undef RGBLIGHT_LED_COUNT
-#    define RGBLIGHT_ANIMATIONS
-#    define RGBLIGHT_LED_COUNT 54
-#    undef RGBLED_SPLIT
-#    define RGBLED_SPLIT \
-        { 27, 27 }
-#    define RGBLIGHT_LIMIT_VAL 120
-#    define RGBLIGHT_HUE_STEP  10
-#    define RGBLIGHT_SAT_STEP  17
-#    define RGBLIGHT_VAL_STEP  17
+    #undef RGBLIGHT_LED_COUNT
+    #define RGBLIGHT_LED_COUNT 54
+    #define RGBLIGHT_LIMIT_VAL 120
+    
+    /* === АНИМАЦИИ (Раскомментируй то, что хочешь) === */
+    /* Если включить ВСЕ сразу - может не влезть в память! */
+    
+    #define RGBLIGHT_EFFECT_BREATHING       // Дыхание (Must have)
+    #define RGBLIGHT_EFFECT_RAINBOW_MOOD    // Медленная радуга
+    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL   // Вращающаяся радуга (Топчик)
+    // #define RGBLIGHT_EFFECT_SNAKE           // Змейка
+    // #define RGBLIGHT_EFFECT_KNIGHT          // Рыцарь дорог (KITT)
+    // #define RGBLIGHT_EFFECT_CHRISTMAS    // Рождество (на любителя)
+    // #define RGBLIGHT_EFFECT_STATIC_GRADIENT // Градиент
+    // #define RGBLIGHT_EFFECT_RGB_TEST     // Тест цветов
+    // #define RGBLIGHT_EFFECT_ALTERNATING  // Мигалка
+    // #define RGBLIGHT_EFFECT_TWINKLE      // Мерцание (Жрет много памяти!)
+    
+    #undef RGBLED_SPLIT
+    #define RGBLED_SPLIT { 27, 27 }
+    #define RGBLIGHT_HUE_STEP  10
+    #define RGBLIGHT_SAT_STEP  17
+    #define RGBLIGHT_VAL_STEP  17
 #endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
